@@ -27,7 +27,7 @@ describe("oauth-router", function () {
         .query({ password: 'Auth0B00tc@mp' });
 
       expect(res).to.have.status(200);
-      expect(bcrypt.compareSync('Auth0B00tc@mp',res.body)).to.equal(true);
+      expect(bcrypt.compareSync('Auth0B00tc@mp',res.body.hash)).to.equal(true);
     });
 
     it("given a password and its hash check if they match");
