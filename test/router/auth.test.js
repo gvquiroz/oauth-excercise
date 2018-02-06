@@ -22,14 +22,12 @@ describe("oauth-router", function () {
     });
 
     it("given a password it should give me its hash", async function () {
-      chai.request(server)
-      .get('/auth/hash')
-      .query({ password: 'Auth0B00tc@mp' })
-      .end(function(err, res) {
-        expect(res).to.have.status(200);
-        expect(bcrypt.compareSync('Auth0B00tc@mp',res.body)).to.equal(true);
-        done();
-      });
+      let res = await chai.request(server)
+        .get('/auth/hash')
+        .query({ password: 'Auth0B00tc@mp' });
+
+      expect(res).to.have.status(200);
+      expect(bcrypt.compareSync('Auth0B00tc@mp',res.body)).to.equal(true);
     });
 
     it("given a password and its hash check if they match");
