@@ -9,7 +9,8 @@ router.get('/verify', function(req, res, next) {
 });
 
 router.get('/hash', function(req, res, next) {
-  res.json();
+  let password = req.query.password;
+  res.json(passwordUtils.hashPassword(password));
 });
 
 router.get('/validate', function(req, res, next) {

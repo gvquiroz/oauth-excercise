@@ -1,5 +1,5 @@
 const owasp = require('owasp-password-strength-test');
-const md5 = require('md5');
+const bcrypt = require('bcrypt');
 
 owasp.config({
   allowPassphrases       : false,
@@ -13,7 +13,7 @@ function verifyPassword(password) {
 }
 
 function hashPassword(password) {
-  return md5(password)
+  return bcrypt.hashSync(password,8);
 }
 
 module.exports = {

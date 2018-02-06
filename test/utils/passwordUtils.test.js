@@ -1,6 +1,6 @@
 const chai = require('chai');
 const expect = chai.expect;
-const md5 = require('md5');
+const bcrypt = require('bcrypt');
 
 const passwordUtils = require('../../app/utils/passwordUtils');
 
@@ -20,7 +20,7 @@ describe("oauth-utils", function () {
       let randomPassword = "a strong password";
       let hashedPassword = passwordUtils.hashPassword(randomPassword);
 
-      expect(md5(randomPassword)).to.equal(hashedPassword);
+      expect(bcrypt.compareSync(randomPassword,hashedPassword)).to.equal(true);
     });
   });
 });
