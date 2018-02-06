@@ -16,7 +16,11 @@ router.get('/hash', function(req, res, next) {
 });
 
 router.get('/validate', function(req, res, next) {
-  res.json();
+  let password = req.query.password;
+  let hash = req.query.hash;
+  res.json({
+    'isPassword' : passwordUtils.comparePassword(password,hash)
+  });
 });
 
 router.get('/random', function(req, res, next) {

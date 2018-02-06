@@ -22,5 +22,14 @@ describe("oauth-utils", function () {
 
       expect(bcrypt.compareSync(randomPassword,hashedPassword)).to.equal(true);
     });
+
+    it("it should true comparing passwords", function () {
+
+        let randomPassword = "a strong password";
+        let hashedPassword = passwordUtils.hashPassword(randomPassword);
+
+        expect(passwordUtils.comparePassword(randomPassword,hashedPassword)).to.equal(true);
+    });
+
   });
 });
