@@ -4,7 +4,7 @@
   "description": "Readme",
   "scripts": {
     "start": "node ./app/bin/www",
-    "test": "mocha --recursive"
+    "test": "mocha --recursive --exit"
   },
   "repository": {
     "type": "git",

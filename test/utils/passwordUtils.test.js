@@ -4,7 +4,7 @@ const md5 = require('md5');
 
 const passwordUtils = require('../../app/utils/passwordUtils');
 
-describe("oauth-excercise", function () {
+describe("oauth-utils", function () {
 
   describe('password-utils', function () {
     it("it should return a password strength analysis", function() {
