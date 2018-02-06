@@ -24,7 +24,10 @@ router.get('/validate', function(req, res, next) {
 });
 
 router.get('/random', function(req, res, next) {
-  res.json();
+  let password = passwordUtils.random();
+  res.json({
+    password: password
+  });
 });
 
 module.exports = router;

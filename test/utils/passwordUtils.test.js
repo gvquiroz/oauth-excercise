@@ -31,5 +31,11 @@ describe("oauth-utils", function () {
         expect(passwordUtils.comparePassword(randomPassword,hashedPassword)).to.equal(true);
     });
 
+    it("it should return a random generated password", function () {
+
+      let password = passwordUtils.random();
+
+      expect(password).to.be.a('string');
+    });
   });
 });

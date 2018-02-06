@@ -44,6 +44,12 @@ describe("oauth-router", function () {
       expect(res.body.isPassword).to.equal(true);
     });
 
-    it("should give me a random password");
+    it("should give me a random password", async function () {
+      let res = await chai.request(server).get('/auth/random');
+
+      expect(res).to.have.status(200);
+
+      expect(res.body.password).to.be.a('string');
+    });
   });
 });
