@@ -52,4 +52,12 @@ describe("oauth-router", function () {
       expect(res.body.password).to.be.a('string');
     });
   });
+
+  describe("health router test", function () {
+    it("should give me the server ip", async function() {
+      let res = await chai.request(server).get("/health");
+
+      expect(res).to.have.status(200);
+    })
+  });
 });
